@@ -31,7 +31,7 @@ async def on_message(message: aiogram.types.Message):
             maid = -1
 
         if maid != aid:
-            await message.reply("Вступайте в наш чат для дальнейшего общения.", reply_markup=markup)
+            await message.reply(config.message_text, reply_markup=markup)
 
         try:
             aid = int(message.media_group_id)
