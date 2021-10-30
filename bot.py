@@ -2,6 +2,7 @@ import logging
 
 import aiogram
 from aiogram import Bot, Dispatcher, types
+from aiogram.types import ContentType
 from aiogram.utils import executor
 
 import config
@@ -14,8 +15,7 @@ dp = Dispatcher(bot)
 aid = 0
 
 
-@dp.message_handler(content_types=['text', 'video', 'file', 'photo', 'document', 'audio', 'voice', 'animation',
-                                   'sticker'])
+@dp.message_handler(content_types=ContentType.all())
 async def on_message(message: aiogram.types.Message):
     global aid
 
