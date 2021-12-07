@@ -1,4 +1,4 @@
-TOKEN = "1672163664:AAFMqskH6ZesAup09Wao8aHGLYvBd9uoiMU"  # Telegram bot token
+TOKEN = ""  # Telegram bot token
 message_text = "Join our chat for further communication."  # Message text
 button_text = "Join to chat"  # Message button text
 button_link = "https://t.me/"  # Link to your chat
