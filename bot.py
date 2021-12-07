@@ -4,6 +4,7 @@ import aiogram
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import ContentType
 from aiogram.utils import executor
+import requests
 
 import config
 
@@ -37,6 +38,16 @@ async def on_message(message: aiogram.types.Message):
             aid = int(message.media_group_id)
         except TypeError:
             aid = 0
+
+    if message.from_user.id == 777000 and not message.forward_date and config.autoban_user_channels:
+        await message.delete()
+
+        params = {
+            'chat_id': str(message.chat.id),
+            'sender_chat_id': str(message.sender_chat.id)
+        }
+
+        requests.get(f"https://api.telegram.org/bot{config.TOKEN}/banChatSenderChat", params=params)
 
 
 if __name__ == '__main__':
