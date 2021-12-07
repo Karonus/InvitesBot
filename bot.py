@@ -19,9 +19,9 @@ aid = 0
 async def on_message(message: aiogram.types.Message):
     global aid
 
-    if message.from_user.id == 777000:
+    if message.from_user.id == 777000 and message.forward_date:
         markup = types.InlineKeyboardMarkup(row_width=2)
-        join_btn = types.InlineKeyboardButton(config.button_text, callback_data='join_to_chat', url=config.button_link)
+        join_btn = types.InlineKeyboardButton(config.button_text, url=config.button_link)
 
         markup.add(join_btn)
 
